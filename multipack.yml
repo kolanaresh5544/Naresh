@@ -1,0 +1,13 @@
+---
+ - hosts: redhat
+   become: yes
+   tasks:
+   - name: installing multiple packages
+     yum:
+        name: "{{ item }}"
+        state: installed
+     loop:
+           - httpd
+           - curl
+           - wget 
+           - nano
