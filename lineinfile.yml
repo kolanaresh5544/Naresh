@@ -1,0 +1,9 @@
+---
+ - name line in file module using
+   hosts: all
+   tasks:
+     - name: line in file
+       lineinfile:
+         path: /home/naresh/file.txt
+         line: 'Hello Naresh'
+         create: yes
