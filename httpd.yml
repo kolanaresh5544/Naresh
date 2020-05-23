@@ -1,0 +1,20 @@
+---
+ - name: http deployement
+   hosts: redhat
+   become: yes
+   tasks:
+   - name: installing Http
+     yum:
+        name: httpd
+        state: installed
+   - name: deployment
+     copy: 
+         src: /home/naresh/index.html
+         dest: /var/www/html
+     notify: restarting httpd services  
+   handlers:
+   - name: restarting httpd services
+     service:
+            name: httpd
+            state: restarted
+... 
